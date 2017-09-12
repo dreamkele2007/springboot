@@ -11,7 +11,7 @@ import java.util.Map;
 @Controller
 public class TemplateController {
     /**
-     * 返回html模板.
+     * 返回thymleaf html模板.
      */
     @RequestMapping("/helloHtml")
     public String helloHtml(Map<String,Object> map){
