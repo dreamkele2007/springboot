@@ -1,4 +1,4 @@
-package com.example.springboot.base;
+package com.huahua.base;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

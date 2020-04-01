@@ -1,4 +1,4 @@
-package com.example.springboot.base;
+package com.huahua.base;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

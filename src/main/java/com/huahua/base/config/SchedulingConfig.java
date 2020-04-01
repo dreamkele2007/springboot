@@ -1,10 +1,12 @@
-package com.example.springboot.base;
+package com.huahua.base.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * Created by GM on 2017/9/12.
+ * @author GYM
+ * @date 2020/4/1
+ * @Description: 定时任务
  */
 @Configuration
 @EnableScheduling
