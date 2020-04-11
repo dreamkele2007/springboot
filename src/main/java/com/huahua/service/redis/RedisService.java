@@ -1,9 +1,8 @@
 package com.huahua.service.redis;
 
-import com.huahua.base.utils.JsonUtils;
+import com.huahua.base.utils.json.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;

@@ -10,6 +10,11 @@ redis:
      host: 192.168.80.134
      port: 6379
 spring:
+  redis:
+    host: 192.168.80.134
+    port: 6379
+    timeout: 1000
+
   http:
     encoding:
       force: true
@@ -20,31 +25,61 @@ spring:
     password: PHXwlj19901022
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    filters: stat
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
-    #Redis连接配置
-    RedisProps:
-        database: 0
-        host: ${redis.host}
-        password:
-        port: ${redis.port}
-        maxActive: 100
-        maxIdle: 100
-        maxWait: -1
-        minIdle: 0
-        timeout: 0
+    druid:
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-return: false
+      test-on-borrow: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+    tianLongDatasource:
+      name: test1
+      url: jdbc:oracle:thin:@${oracle.host}:${oracle.port}/${oracle.sid}
+      username: ODSREAD_UAT
+      password: ODSREAD_UAT
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      #定义初始连接数
+      initialSize: 5
+      #定义最大连接数
+      maxActive: 50
+      #定义最小空闲
+      minIdle: 1
+      #定义最长等待时间
+      maxWait: 60000
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 3600000
+      minEvictableIdleTimeMillis: 3600000
+      numTestsPerEvictionRun: 3
+      poolPreparedStatements: false
+      maxOpenPreparedStatements: 0
+      defaultAutoCommit: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 300
+      logAbandoned: false
 
-
-#mybatis:
-#    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
+########################################################
+###mybatis配置.
+########################################################
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.huahua.domain
+########################################################
+###分页插件
+########################################################
+pagehelper:
+  # dialect: ①
+  # 分页插件会自动检测当前的数据库链接，自动选择合适的分页方式（可以不设置）
+  # 默认值为 false，该参数对使用 RowBounds 作为分页参数时有效。（一般用不着）
+  # offset-as-page-num: false
+  helperDialect: mysql
+  reasonable: true
+  params: count=countSql
+  support-methods-arguments: "true"
+logging:
+  level: debug
