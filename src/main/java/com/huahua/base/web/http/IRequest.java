@@ -1,4 +1,4 @@
-package com.huahua.base.web;
+package com.huahua.base.web.http;
 
 import javax.servlet.http.Cookie;
 import java.util.Map;

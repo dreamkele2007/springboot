@@ -26,7 +26,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     druid:
-      max-active: 20
+      maxActive: 20
       initial-size: 1
       max-wait: 60000
       min-idle: 1
@@ -38,37 +38,34 @@ spring:
       test-on-borrow: false
       pool-prepared-statements: true
       max-open-prepared-statements: 20
-    tianLongDatasource:
-      name: test1
-      url: jdbc:oracle:thin:@${oracle.host}:${oracle.port}/${oracle.sid}
-      username: ODSREAD_UAT
-      password: ODSREAD_UAT
-      driver-class-name: oracle.jdbc.driver.OracleDriver
-      #定义初始连接数
-      initialSize: 5
-      #定义最大连接数
-      maxActive: 50
-      #定义最小空闲
-      minIdle: 1
-      #定义最长等待时间
-      maxWait: 60000
-      testWhileIdle: true
-      timeBetweenEvictionRunsMillis: 3600000
-      minEvictableIdleTimeMillis: 3600000
-      numTestsPerEvictionRun: 3
-      poolPreparedStatements: false
-      maxOpenPreparedStatements: 0
-      defaultAutoCommit: true
-      removeAbandoned: true
-      removeAbandonedTimeout: 300
-      logAbandoned: false
+  oracle_datasource:
+    name: huahua2
+    url: jdbc:mysql://${mysql.host}:${mysql.port}/huahua2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: PHXwlj19901022
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      max-active: 40
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-return: false
+      test-on-borrow: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+
 
 ########################################################
 ###mybatis配置.
 ########################################################
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.huahua.domain
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.huahua.domain
 ########################################################
 ###分页插件
 ########################################################

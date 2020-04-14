@@ -1,7 +1,7 @@
 package com.huahua.controller.system;
 
 import com.github.pagehelper.PageInfo;
-import com.huahua.base.web.Result;
+import com.huahua.base.web.http.Result;
 import com.huahua.base.web.ui.model.GridRequest;
 import com.huahua.domain.system.UserDO;
 import com.huahua.service.redis.RedisService;
@@ -23,6 +23,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RedisService redisService;
+
 
     /**
      * @Description:
@@ -78,7 +79,7 @@ public class UserController {
     }
 
     /**
-     * @Description: 分页查询--测试
+     * @Description: 分页查询--测试后端分页
      */
     @GetMapping(value = "/page2/")
     public Result selectByPage2(){
@@ -86,6 +87,7 @@ public class UserController {
         PageInfo<UserDO> pageInfo = new PageInfo<UserDO>(result);
         return new Result(pageInfo);
     }
+
     @PostMapping
     public Result update(@RequestBody UserDO userDo){
         userService.updateByIdWithTx(userDo);

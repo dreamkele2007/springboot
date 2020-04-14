@@ -1,4 +1,4 @@
-package com.huahua.base.web;
+package com.huahua.base.web.http;
 
 /**
  * 平台参数交互json包装VO

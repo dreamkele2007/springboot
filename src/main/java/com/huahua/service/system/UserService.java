@@ -60,4 +60,6 @@ public interface UserService {
      * @return: 
      */
     int updateByIdWithTx(UserDO userDO);
+
+    List<UserDO> testMultiDataSource();
 }

@@ -1,4 +1,4 @@
-package com.huahua.base.web;
+package com.huahua.base.web.http;
 
 import java.util.HashMap;
 

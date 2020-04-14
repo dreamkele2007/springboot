@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.huahua.base.web.ui.model.GridRequest;
 import com.huahua.base.web.ui.model.PageInfo;
 import com.huahua.domain.system.UserDO;
+import com.huahua.ermmapper.JkzbMapper;
 import com.huahua.mapper.system.UserMapper;
 import com.huahua.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private JkzbMapper userMapper2;
 
     @Override
     public int insertSelective(UserDO userDO) {
@@ -32,6 +35,7 @@ public class UserServiceImpl implements UserService {
     public void insert(UserDO userDO) {
         userMapper.insert(userDO);
     }
+
 
     @Override
     public UserDO selectById(Integer id) {
@@ -68,6 +72,14 @@ public class UserServiceImpl implements UserService {
         userDO.setEmail("gaoymf@yonyou.com");
         int j = userMapper.updateByPrimaryKey(userDO);
         return i;
+    }
+
+    @Override
+    public List<UserDO> testMultiDataSource() {
+        List<UserDO> userDOS = userMapper.selectAll();
+        List<UserDO> userDOS1 = userMapper2.selectAll();
+        userDOS.addAll(userDOS1);
+        return userDOS;
     }
 
 
