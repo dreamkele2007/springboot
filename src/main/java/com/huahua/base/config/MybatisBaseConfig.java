@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 // 通过basePackages 和 sqlSessionFactoryRef 绑定数据源和mapper
-@MapperScan(basePackages = "com.huahua.mapper",sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "com.huahua.mapper.system",sqlSessionFactoryRef = "sqlSessionFactory")
 public class MybatisBaseConfig {
     @Autowired
     @Qualifier(value = DatabaseConfiguration.DATASOURCE)
@@ -38,7 +38,7 @@ public class MybatisBaseConfig {
         factory.setTypeAliasesPackage("com.huahua.domain");
         // 添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        factory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+        factory.setMapperLocations(resolver.getResources("classpath:mapper/system/*.xml"));
         return factory.getObject();
     }
 

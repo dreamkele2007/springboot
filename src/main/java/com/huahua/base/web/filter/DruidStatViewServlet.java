@@ -1,4 +1,4 @@
-package com.huahua.base;
+package com.huahua.base.web.filter;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 
@@ -6,9 +6,9 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 
 /**
- * druid数据源状态监控.
- * @author Administrator
- *
+ * @author GYM
+ * @date 2020/4/12 10:44
+ * @Description: 数据库连接池配置：http://127.0.0.1:8888/huahua/druid/datasource.html
  */
 @WebServlet(urlPatterns="/druid/*",
         initParams={

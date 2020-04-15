@@ -20,7 +20,7 @@ public class DatabaseConfiguration {
 
     @Bean(name = DATASOURCE)
     @ConfigurationProperties(prefix = "spring.datasource")
-    @Primary  // 表示这个数据源是默认数据源
+    @Primary  // 表示默认数据源
     public DataSource dataSourceOne() {
         return  DruidDataSourceBuilder.create().build();
     }

@@ -1,4 +1,4 @@
-package com.huahua.base;
+package com.huahua.base.web.filter;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

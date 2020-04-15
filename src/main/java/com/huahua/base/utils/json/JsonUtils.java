@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * @author GYM
  * @date 2020/4/7 17:21
- * @Description: json转换工具类
+ * @Description: fastjson 转换工具类
  */
 public class JsonUtils {
 
