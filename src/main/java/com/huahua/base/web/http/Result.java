@@ -23,6 +23,7 @@ public class Result {
      */
     private Object data = new HashMap<String,Object>();
 
+
     /**
      * 构造方法
      */

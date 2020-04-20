@@ -6,6 +6,7 @@ import com.huahua.domain.system.UserDO;
 import com.huahua.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @Description: 测试入口类
  */
 @RestController
+@RequestMapping(value = "/test")
 public class CommonTestController {
     /**
      * @Description: 多数据源测试

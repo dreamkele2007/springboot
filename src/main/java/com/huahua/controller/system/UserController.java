@@ -18,6 +18,7 @@ import java.util.List;
  * @Description: 用户操作类
  */
 @RestController
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -60,9 +61,9 @@ public class UserController {
 
 
     /**
-     * @Description: 根据id查询一条
+     * @Description: 查询所有
      */
-    @GetMapping(value = "/all/")
+    @GetMapping(value = "/all")
     public Result selectAll(){
         List<UserDO> result= userService.selectAll();
         return new Result(result);
@@ -71,7 +72,7 @@ public class UserController {
     /**
      * @Description: 分页查询
      */
-    @GetMapping(value = "/page/")
+    @GetMapping(value = "/page")
     public Result selectByPage(@RequestBody GridRequest gridRequest){
         List<UserDO> result= userService.selectByPage(gridRequest);
         PageInfo<UserDO> pageInfo = new PageInfo<UserDO>(result);
@@ -81,14 +82,14 @@ public class UserController {
     /**
      * @Description: 分页查询--测试后端分页
      */
-    @GetMapping(value = "/page2/")
+    @GetMapping(value = "/page2")
     public Result selectByPage2(){
         List<UserDO> result= userService.selectByPage();
         PageInfo<UserDO> pageInfo = new PageInfo<UserDO>(result);
         return new Result(pageInfo);
     }
 
-    @PostMapping
+    @PostMapping(value = "/update")
     public Result update(@RequestBody UserDO userDo){
         userService.updateByIdWithTx(userDo);
         return new Result();

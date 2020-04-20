@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 /**
  * @author GYM
  * @date 2020/4/12 10:44
- * @Description: 数据库连接池配置：http://127.0.0.1:8888/huahua/druid/datasource.html
+ * @Description: 数据库连接池配置：http://127.0.0.1:8888/druid/datasource.html
  */
 @WebServlet(urlPatterns="/druid/*",
         initParams={

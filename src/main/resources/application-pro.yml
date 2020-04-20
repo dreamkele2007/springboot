@@ -1,7 +1,6 @@
 # 开发环境profile
 server:
   port: 8888
-  contextPath: /huahua
 
 mysql:
   host: 140.143.26.129
