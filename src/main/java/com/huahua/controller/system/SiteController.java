@@ -31,7 +31,7 @@ public class SiteController {
     }
 
     /**
-     * @Description: 根据id查询一条
+     * @Description: 查询所有
      */
     @GetMapping(value = "/all")
     public Result selectAll(){

@@ -1,6 +1,6 @@
 package com.huahua.base.web.ui.model;
 
-import com.huahua.base.utils.String.CamelCaseUtils;
+import com.huahua.base.utils.string.CamelCaseUtils;
 
 import java.util.List;
 

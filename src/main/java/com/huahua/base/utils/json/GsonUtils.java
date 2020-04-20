@@ -52,7 +52,7 @@ public class GsonUtils {
 //		 SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
 //		 dateFm.format(date);
 
-//        String[] weekDays = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
+//        string[] weekDays = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
         String[] weekDays = {"7", "1", "2", "3", "4", "5", "6"};
         Calendar cal = Calendar.getInstance();
         cal.setTime(dt);

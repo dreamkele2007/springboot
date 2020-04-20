@@ -118,7 +118,7 @@ public class RedisService {
 	 * @Description:
 	 * @param name
 	 * @return
-	 * @return String
+	 * @return string
 	 */
 	public String getString(final String name) {
 		try {

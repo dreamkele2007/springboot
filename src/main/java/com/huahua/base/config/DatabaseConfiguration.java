@@ -26,7 +26,7 @@ public class DatabaseConfiguration {
     }
 
     @Bean(name = SLAVE_DATASOURCE)
-    @ConfigurationProperties(prefix = "spring.oracle_datasource")
+    @ConfigurationProperties(prefix = "spring.slave_datasource")
     public DataSource dataSourceTwo() {
         return DruidDataSourceBuilder.create().build();
     }

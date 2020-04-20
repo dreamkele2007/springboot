@@ -1,4 +1,4 @@
-package com.huahua.base.utils.String;
+package com.huahua.base.utils.string;
 
 
 /**
