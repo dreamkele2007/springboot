@@ -2,7 +2,7 @@ package com.huahua.mapper.system;
 
 import com.huahua.base.web.ui.model.PageInfo;
 import com.huahua.domain.system.UserDO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,19 +11,19 @@ import java.util.List;
  * @date 2020/4/2 21:24
  * @Description: TODO
  */
+@Repository
 public interface UserMapper {
-    void insert(UserDO userDO);
+	void insert(UserDO userDO);
 
-    int insertSelective(UserDO userDO);
+	int insertSelective(UserDO userDO);
 
-    UserDO selectById(Integer id);
+	UserDO selectById(Integer id);
 
-    UserDO selectByName(String name);
+	UserDO selectByName(String name);
 
+	List<UserDO> selectAll();
 
-    List<UserDO> selectAll();
+	List<UserDO> selectAll(PageInfo pageInfo);
 
-    List<UserDO> selectAll(PageInfo pageInfo);
-
-    int updateByPrimaryKey(UserDO userDO);
+	int updateByPrimaryKey(UserDO userDO);
 }

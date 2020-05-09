@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 /**
  * @author GYM
  * @date 2020/4/1
@@ -20,80 +19,74 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private RedisService redisService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private RedisService redisService;
 
+	/**
+	 * @Description:
+	 * @Param: []
+	 */
+	@PostMapping("/add")
+	public String add(@RequestBody UserDO userVO) {
+		userService.insert(userVO);
+		String name = redisService.getString("name");
+		return name + "3";
+	}
 
-    /**
-     * @Description:
-     * @Param: []
-     */
-    @PostMapping("/add")
-    public String add(@RequestBody UserDO userVO) {
-        userService.insert(userVO);
-        String name = redisService.getString("name");
-        return name+"3";
-    }
+	/**
+	 * @Description:
+	 * @Param: []
+	 */
+	@PostMapping("/save")
+	public Result insertSelective(@RequestBody UserDO userVO) {
+		int rowNum = userService.insertSelective(userVO);
+		return new Result(rowNum);
+	}
 
+	/**
+	 * @Description: 根据id查询一条
+	 */
+	@GetMapping(value = "/one/{id}")
+	public Result selectById(@PathVariable Integer id) {
+		UserDO result = userService.selectById(id);
+		return new Result(result);
+	}
 
+	/**
+	 * @Description: 查询所有
+	 */
+	@GetMapping(value = "/all")
+	public Result selectAll() {
+		List<UserDO> result = userService.selectAll();
+		return new Result(result);
+	}
 
-    /**
-     * @Description:
-     * @Param: []
-     */
-    @PostMapping("/save")
-    public Result insertSelective(@RequestBody UserDO userVO) {
-        int rowNum = userService.insertSelective(userVO);
-        return new Result(rowNum);
-    }
+	/**
+	 * @Description: 分页查询
+	 */
+	@GetMapping(value = "/page")
+	public Result selectByPage(@RequestBody GridRequest gridRequest) {
+		List<UserDO> result = userService.selectByPage(gridRequest);
+		PageInfo<UserDO> pageInfo = new PageInfo<>(result);
+		return new Result(pageInfo);
+	}
 
+	/**
+	 * @Description: 分页查询--测试后端分页
+	 */
+	@GetMapping(value = "/page2")
+	public Result selectByPage2() {
+		List<UserDO> result = userService.selectByPage();
+		PageInfo<UserDO> pageInfo = new PageInfo<>(result);
+		return new Result(pageInfo);
+	}
 
-    /**
-     * @Description: 根据id查询一条
-     */
-    @GetMapping(value = "/one/{id}")
-    public Result selectById(@PathVariable Integer id){
-        UserDO result= userService.selectById(id);
-        return new Result(result);
-    }
-
-
-    /**
-     * @Description: 查询所有
-     */
-    @GetMapping(value = "/all")
-    public Result selectAll(){
-        List<UserDO> result= userService.selectAll();
-        return new Result(result);
-    }
-
-    /**
-     * @Description: 分页查询
-     */
-    @GetMapping(value = "/page")
-    public Result selectByPage(@RequestBody GridRequest gridRequest){
-        List<UserDO> result= userService.selectByPage(gridRequest);
-        PageInfo<UserDO> pageInfo = new PageInfo<UserDO>(result);
-        return new Result(pageInfo);
-    }
-
-    /**
-     * @Description: 分页查询--测试后端分页
-     */
-    @GetMapping(value = "/page2")
-    public Result selectByPage2(){
-        List<UserDO> result= userService.selectByPage();
-        PageInfo<UserDO> pageInfo = new PageInfo<UserDO>(result);
-        return new Result(pageInfo);
-    }
-
-    @PostMapping(value = "/update")
-    public Result update(@RequestBody UserDO userDo){
-        userService.updateByIdWithTx(userDo);
-        return new Result();
-    }
-
+	@PostMapping(value = "/update")
+	public Result update(@RequestBody UserDO userDo) {
+		userService.updateByIdWithTx(userDo);
+		return new Result();
+	}
 
 }
