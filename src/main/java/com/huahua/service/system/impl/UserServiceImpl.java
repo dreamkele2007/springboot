@@ -1,11 +1,11 @@
 package com.huahua.service.system.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.huahua.base.web.ui.model.GridRequest;
-import com.huahua.base.web.ui.model.PageInfo;
-import com.huahua.domain.system.UserDO;
+import com.huahua.base.web.ui.GridRequest;
+import com.huahua.base.web.ui.PageInfo;
+import com.huahua.domain.system.SmUser;
 import com.huahua.mapper.erm.JkzbMapper;
-import com.huahua.mapper.system.UserMapper;
+import com.huahua.mapper.system.SmUserMapper;
 import com.huahua.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,65 +20,65 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private SmUserMapper smUserMapper;
     @Autowired
     private JkzbMapper userMapper2;
 
     @Override
-    public int insertSelective(UserDO userDO) {
-        return userMapper.insertSelective(userDO);
+    public int insertSelective(SmUser smUser) {
+        return smUserMapper.insertSelective(smUser);
     }
 
     @Transactional
     @Override
-    public void insert(UserDO userDO) {
-        userMapper.insert(userDO);
+    public void insert(SmUser smUser) {
+        smUserMapper.insert(smUser);
     }
 
 
     @Override
-    public UserDO selectById(Integer id) {
-        return userMapper.selectById(id);
+    public SmUser selectById(Integer id) {
+        return smUserMapper.selectById(id);
     }
 
     @Override
-    public List<UserDO> selectAll() {
-        return userMapper.selectAll();
+    public List<SmUser> selectAll() {
+        return smUserMapper.selectAll();
     }
 
     @Override
-    public List<UserDO> selectByPage(GridRequest gridRequest) {
+    public List<SmUser> selectByPage(GridRequest gridRequest) {
         PageHelper.startPage(gridRequest.getPageNum(), gridRequest.getPageSize());
-        List<UserDO> userList = userMapper.selectAll();
+        List<SmUser> userList = smUserMapper.selectAll();
         return userList;
     }
 
     @Override
-    public List<UserDO> selectByPage() {
+    public List<SmUser> selectByPage() {
         PageInfo pageInfo = new PageInfo();
         pageInfo.setPageNum(1);
         pageInfo.setPageSize(10);
-        List<UserDO> userList = userMapper.selectAll(pageInfo);
+        List<SmUser> userList = smUserMapper.selectAll(pageInfo);
         return userList;
     }
 
     @Transactional
     @Override
-    public int updateByIdWithTx(UserDO userDO) {
-        int i = userMapper.updateByPrimaryKey(userDO);
+    public int updateByIdWithTx(SmUser smUser) {
+        int i = smUserMapper.updateByPrimaryKey(smUser);
 //        int s = 10/0;
-        userDO.setId(1);
-        userDO.setEmail("gaoymf@yonyou.com");
-        int j = userMapper.updateByPrimaryKey(userDO);
+        smUser.setId(1);
+        smUser.setEmail("gaoymf@yonyou.com");
+        int j = smUserMapper.updateByPrimaryKey(smUser);
         return i;
     }
 
     @Override
-    public List<UserDO> testMultiDataSource() {
-        List<UserDO> userDOS = userMapper.selectAll();
-        List<UserDO> userDOS1 = userMapper2.selectAll();
-        userDOS.addAll(userDOS1);
-        return userDOS;
+    public List<SmUser> testMultiDataSource() {
+        List<SmUser> smUsers = smUserMapper.selectAll();
+        List<SmUser> smUserDOS1 = userMapper2.selectAll();
+        smUsers.addAll(smUserDOS1);
+        return smUsers;
     }
 
 

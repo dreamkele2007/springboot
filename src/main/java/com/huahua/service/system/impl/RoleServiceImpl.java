@@ -1,6 +1,6 @@
 package com.huahua.service.system.impl;
 
-import com.huahua.domain.system.RoleDO;
+import com.huahua.domain.system.SmRole;
 import com.huahua.service.system.RoleService;
 import org.springframework.stereotype.Service;
 
@@ -12,17 +12,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoleServiceImpl implements RoleService {
     @Override
-    public int insertSelective(RoleDO roleDO) {
+    public int insertSelective(SmRole smRole) {
         return 0;
     }
 
     @Override
-    public void insert(RoleDO roleDO) {
+    public void insert(SmRole smRole) {
 
     }
 
     @Override
-    public RoleDO selectById(Integer id) {
+    public SmRole selectById(Integer id) {
         return null;
     }
 }

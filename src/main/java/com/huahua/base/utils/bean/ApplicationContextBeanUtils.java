@@ -18,7 +18,7 @@ public class ApplicationContextBeanUtils implements ApplicationContextAware{
         if(ApplicationContextBeanUtils.applicationContext == null){
             ApplicationContextBeanUtils.applicationContext  = applicationContext;
         }
-        System.err.println("========ApplicationContext配置成功,在普通类可以通过调用ApplicationContextBeanUtils.getAppContext()获取applicationContext对象,applicationContext="+ApplicationContextBeanUtils.applicationContext+"========");
+//        System.err.println("========ApplicationContext配置成功,在普通类可以通过调用ApplicationContextBeanUtils.getAppContext()获取applicationContext对象,applicationContext="+ApplicationContextBeanUtils.applicationContext+"========");
     }
     //获取applicationContext
     public static ApplicationContext getApplicationContext() {

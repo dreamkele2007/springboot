@@ -2,7 +2,7 @@ package com.huahua.controller.test;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.huahua.base.web.http.Result;
-import com.huahua.domain.system.UserDO;
+import com.huahua.domain.system.SmUser;
 import com.huahua.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -33,8 +32,8 @@ public class CommonTestController {
     
     @GetMapping(value = "/datasource")
     public Result testMultiDataSource(@RequestParam("name")String name){
-        List<UserDO> userDOS = userService.testMultiDataSource();
+        List<SmUser> smUsers = userService.testMultiDataSource();
         System.out.println(name);
-        return new Result(userDOS);
+        return new Result(smUsers);
     }
 }

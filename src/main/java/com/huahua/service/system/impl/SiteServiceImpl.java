@@ -24,6 +24,12 @@ public class SiteServiceImpl implements SiteService {
     }
 
     @Override
+    public int delete(SmSite smSite) {
+        int i = smSiteMapper.deleteByPrimaryKey(smSite.getId());
+        return i;
+    }
+
+    @Override
     public void insert(SmSite smSite) {
         int insert = smSiteMapper.insert(smSite);
     }

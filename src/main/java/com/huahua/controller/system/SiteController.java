@@ -19,7 +19,7 @@ public class SiteController {
     @Autowired
     private SiteService siteService;
 
-    /**
+    /**save
      * @Description:
      * @Param: []
      */
@@ -42,6 +42,12 @@ public class SiteController {
     @PostMapping(value = "/update")
     public Result update(@RequestBody SmSite smSite){
         int i = siteService.updateByIdWithTx(smSite);
+        return new Result();
+    }
+
+    @PostMapping(value = "/delete")
+    public Result delete(@RequestBody SmSite smSite){
+        int delete = siteService.delete(smSite);
         return new Result();
     }
 

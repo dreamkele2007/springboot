@@ -1,6 +1,6 @@
 package com.huahua.service.redis;
 
-import com.huahua.base.utils.json.JsonUtils;
+import com.huahua.base.utils.json.JsonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -84,7 +84,7 @@ public class RedisService {
 			@Override
 			public Object doInRedis(RedisConnection connection) throws DataAccessException {
 				connection.set(redisTemplate.getStringSerializer().serialize(name),
-						redisTemplate.getStringSerializer().serialize(JsonUtils.toJson(obj)));
+						redisTemplate.getStringSerializer().serialize(JsonUtil.toJson(obj)));
 				return null;
 			}
 		});
@@ -104,7 +104,7 @@ public class RedisService {
 			@Override
 			public Object doInRedis(RedisConnection connection) throws DataAccessException {
 				connection.set(redisTemplate.getStringSerializer().serialize(name),
-						redisTemplate.getStringSerializer().serialize(JsonUtils.toJson(obj)));
+						redisTemplate.getStringSerializer().serialize(JsonUtil.toJson(obj)));
 				connection.expire(redisTemplate.getStringSerializer().serialize(name), expiredInterval);
 				return null;
 			}
@@ -161,7 +161,7 @@ public class RedisService {
 					if (connection.exists(key)) {
 						byte[] value = connection.get(key);
 						String val = redisTemplate.getStringSerializer().deserialize(value);
-						return JsonUtils.jsonToObject(val, classname);
+						return JsonUtil.jsonToObject(val, classname);
 					}
 					return null;
 				}

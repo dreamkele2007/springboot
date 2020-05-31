@@ -30,7 +30,7 @@ public class MybatisBaseConfig {
 
     @Bean(name = "sqlSessionFactory")
     @Primary
-    public SqlSessionFactory test1SqlSessionFactory() throws Exception {
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
         // 数据源
         factory.setDataSource(dataSource);

@@ -1,5 +1,6 @@
 package com.huahua.base.web.http;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import org.springframework.http.HttpStatus;
@@ -9,9 +10,13 @@ import org.springframework.http.HttpStatus;
  * @date 2020/4/1
  * @Description: 请求返回结果
  */
-public class Result {
+public class Result<T> implements Serializable {
     /**
-     * 返回值
+     * 返回是否成功标识
+     */
+    private Boolean success;
+    /**
+     * 返回编码
      */
     private int  code = 200;
     /**
@@ -21,13 +26,17 @@ public class Result {
     /**
      * 返回数据
      */
-    private Object data = new HashMap<String,Object>();
+    private T data;
 
+
+    public Result(boolean success) {
+        this.success = success;
+    }
 
     /**
      * 构造方法
      */
-    public Result(Object data) {
+    public Result(T data) {
         this.code = HttpStatus.OK.value();
         this.message = "操作成功";
         this.data = data;
@@ -38,7 +47,7 @@ public class Result {
         this.message = message;
     }
 
-    public Result(int code, String message, Object data) {
+    public Result(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -48,27 +57,27 @@ public class Result {
 		super();
 	}
 
-	public int getcode() {
+	public int getCode() {
         return code;
     }
 
-    public void setcode(int code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
-    public String getmessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setmessage(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public Object getdata() {
+    public T getData() {
         return data;
     }
 
-    public void setdata(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

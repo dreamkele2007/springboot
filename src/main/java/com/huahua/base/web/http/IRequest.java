@@ -56,12 +56,7 @@ public interface IRequest {
    */
   String getJson();
 
-  /**
-   * 读取包装参数实体
-   *
-   * @return
-   */
-  RequestJsonVO getRequestJsonVO();
+
 
   /**
    * 获取会话id
@@ -96,7 +91,7 @@ public interface IRequest {
    *
    * @return 平台参数实体
    */
-  RequestSysJsonVO readSysParam();
+  RequestSysVO readSysParam();
 
   /**
    * 设置json实体
@@ -105,11 +100,6 @@ public interface IRequest {
    */
   void setJson(String json);
 
-  /**
-   * 设置包装参数实体
-   *
-   * @return
-   */
-  void setRequestJsonVO(RequestJsonVO requestJsonVO);
+
 
 }

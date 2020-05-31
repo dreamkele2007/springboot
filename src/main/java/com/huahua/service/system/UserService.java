@@ -1,7 +1,7 @@
 package com.huahua.service.system;
 
-import com.huahua.base.web.ui.model.GridRequest;
-import com.huahua.domain.system.UserDO;
+import com.huahua.base.web.ui.GridRequest;
+import com.huahua.domain.system.SmUser;
 
 import java.util.List;
 
@@ -14,17 +14,17 @@ public interface UserService {
     /**
      * 新增
      *
-     * @param userDO
+     * @param smUser
      */
-    public int insertSelective(UserDO userDO);
+    public int insertSelective(SmUser smUser);
 
 
     /**
      * @Description: 保存用户
-     * @Param: userDO
+     * @Param: smUser
      * @return:
      */
-    public void insert(UserDO userDO);
+    public void insert(SmUser smUser);
 
 
     /**
@@ -32,34 +32,34 @@ public interface UserService {
      * @Param: Integer id
      * @return: 
      */
-    public UserDO selectById(Integer id);
+    public SmUser selectById(Integer id);
 
     /**
      * @Description: 查询所有
      * @Param: 
      * @return: 
      */
-    List<UserDO> selectAll();
+    List<SmUser> selectAll();
 
     /**
      * @Description: 查询分页--前台
      * @Param:
      * @return:
      */
-    List<UserDO> selectByPage(GridRequest gridRequest);
+    List<SmUser> selectByPage(GridRequest gridRequest);
 
     /**
      * @Description: 查询分页--后台
      * @Param:
      * @return:
      */
-    List<UserDO> selectByPage();
+    List<SmUser> selectByPage();
     /**
      * @Description:
-     * @Param: userDO
+     * @Param: smUser
      * @return: 
      */
-    int updateByIdWithTx(UserDO userDO);
+    int updateByIdWithTx(SmUser smUser);
 
-    List<UserDO> testMultiDataSource();
+    List<SmUser> testMultiDataSource();
 }

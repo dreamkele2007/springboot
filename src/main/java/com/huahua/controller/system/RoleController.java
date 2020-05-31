@@ -1,6 +1,6 @@
 package com.huahua.controller.system;
 
-import com.huahua.domain.system.RoleDO;
+import com.huahua.domain.system.SmRole;
 import com.huahua.service.system.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +19,9 @@ public class RoleController {
     private RoleService roleService;
 
     @RequestMapping(value="/one/{id}")
-    public RoleDO selectOne(@PathVariable Integer id){
-        RoleDO roleDO = roleService.selectById(id);
-        return  roleDO;
+    public SmRole selectOne(@PathVariable Integer id){
+        SmRole smRole = roleService.selectById(id);
+        return smRole;
     }
 
 }

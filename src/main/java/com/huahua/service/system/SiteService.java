@@ -18,6 +18,13 @@ public interface SiteService {
      */
     public int insertSelective(SmSite smSite);
 
+    /**
+     * @Description:
+     * @Param:
+     * @return:
+     */
+    public int delete(SmSite smSite);
+
 
     /**
      * @Description: 保存用户
@@ -47,5 +54,7 @@ public interface SiteService {
      * @return: 
      */
     int updateByIdWithTx(SmSite smSite);
+
+
 
 }

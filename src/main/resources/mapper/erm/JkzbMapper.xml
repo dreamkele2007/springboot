@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huahua.mapper.erm.JkzbMapper">
-    <resultMap id="BaseResultMap" type="com.huahua.domain.system.UserDO">
+    <resultMap id="BaseResultMap" type="com.huahua.domain.system.SmUser">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <result column="password" jdbcType="VARCHAR" property="password" />
@@ -14,7 +14,7 @@
         <result column="ts" jdbcType="VARCHAR" property="ts" />
     </resultMap>
 
-    <resultMap id="QueryResultMap" type="com.huahua.domain.system.UserDO">
+    <resultMap id="QueryResultMap" type="com.huahua.domain.system.SmUser">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <result column="password" jdbcType="VARCHAR" property="password" />

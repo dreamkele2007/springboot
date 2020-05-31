@@ -1,7 +1,6 @@
 package com.huahua.service.system;
 
-import com.huahua.domain.system.RoleDO;
-import org.springframework.stereotype.Service;
+import com.huahua.domain.system.SmRole;
 
 /**
  * @author GYM
@@ -13,16 +12,16 @@ public interface RoleService {
     /**
      * 新增
      *
-     * @param roleDO
+     * @param smRole
      */
-    public int insertSelective(RoleDO roleDO);
+    public int insertSelective(SmRole smRole);
 
     /**
      * 保存
      *
-     * @param roleDO
+     * @param smRole
      */
-    public void insert(RoleDO roleDO);
+    public void insert(SmRole smRole);
 
     /**
      * 根据主键查询
@@ -30,5 +29,5 @@ public interface RoleService {
      * @param id
      * @return
      */
-    public RoleDO selectById(Integer id);
+    public SmRole selectById(Integer id);
 }
